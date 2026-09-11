@@ -1,11 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="AI-powered student life diagnostic — find out how cooked you really are based on your sleep, assignments, and more.">
+
+    <title>AM I COOKED? 🔥</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <!-- Animated background particles -->
+    <div class="bg-particles" aria-hidden="true">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+    </div>
+
+    <!-- Ambient glow orbs -->
+    <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+
+    <div class="container" id="mainContainer">
+
+        <div class="header-section">
+            <div class="badge">🤖 AI-POWERED DIAGNOSTICS</div>
+            <h1>🔥 AM I COOKED?</h1>
+            <p class="subtitle">AI Student Life Diagnostic System</p>
+        </div>
+
+        <form id="cookedForm">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label for="sleep">😴 Hours of Sleep</label>
+                    <input type="number" id="sleep" min="0" placeholder="e.g. 4" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="assignments">📚 Pending Assignments</label>
+                    <input type="number" id="assignments" min="0" placeholder="e.g. 5" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="examDays">📝 Days Until Exam</label>
+                    <input type="number" id="examDays" min="0" placeholder="e.g. 3" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="attendance">📊 Attendance (%)</label>
+                    <input type="number" id="attendance" min="0" max="100" placeholder="e.g. 62" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="backlogs">💀 Backlogs</label>
+                    <input type="number" id="backlogs" min="0" placeholder="e.g. 2" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="screenTime">📱 Screen Time (hrs)</label>
+                    <input type="number" id="screenTime" min="0" placeholder="e.g. 8" required>
+                </div>
+
+                <div class="input-group input-group-full">
+                    <label for="coffee">☕ Coffees / Energy Drinks</label>
+                    <input type="number" id="coffee" min="0" placeholder="e.g. 3" required>
+                </div>
+
+            </div>
+
+            <button type="submit" id="checkBtn">
+                <span class="btn-text">🔥 CHECK IF I'M COOKED</span>
+                <span class="btn-glow" aria-hidden="true"></span>
+            </button>
+
+            <div id="result"></div>
+
+        </form>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>Built with 💀 and questionable life choices</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="file.js"></script>
+
 </body>
 </html>

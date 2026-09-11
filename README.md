@@ -2,11 +2,11 @@
 
 
 
-# [Project Name] 🎯
+# [AM I COOKED?] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: []
 
 
 ### Team Members

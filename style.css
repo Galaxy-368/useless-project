@@ -1,0 +1,626 @@
+/* ===== Reset & Base ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Outfit', Arial, sans-serif;
+    color: #e2e8f0;
+
+    background: #050a18;
+    overflow-x: hidden;
+    padding: 40px 16px;
+    position: relative;
+}
+
+
+/* ===== Animated Background ===== */
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 15% 20%, rgba(0, 255, 255, 0.12), transparent),
+        radial-gradient(ellipse 50% 60% at 85% 80%, rgba(124, 58, 237, 0.14), transparent),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255, 0, 110, 0.06), transparent);
+    z-index: 0;
+    animation: bgPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+
+/* ===== Floating Glow Orbs ===== */
+
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.glow-orb-1 {
+    width: 350px;
+    height: 350px;
+    background: #00ffff;
+    top: -100px;
+    left: -80px;
+    animation: orbFloat1 12s ease-in-out infinite alternate;
+}
+
+.glow-orb-2 {
+    width: 280px;
+    height: 280px;
+    background: #7c3aed;
+    bottom: -60px;
+    right: -60px;
+    animation: orbFloat2 10s ease-in-out infinite alternate;
+}
+
+.glow-orb-3 {
+    width: 200px;
+    height: 200px;
+    background: #ff006e;
+    top: 50%;
+    left: 60%;
+    animation: orbFloat3 14s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, 80px) scale(1.15); }
+}
+
+@keyframes orbFloat2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, -70px) scale(1.2); }
+}
+
+@keyframes orbFloat3 {
+    0% { transform: translate(0, 0) scale(0.8); opacity: 0.15; }
+    100% { transform: translate(-80px, 40px) scale(1.1); opacity: 0.35; }
+}
+
+
+/* ===== Floating Particles ===== */
+
+.bg-particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.5);
+    animation: particleFloat linear infinite;
+}
+
+.particle-1 {
+    width: 4px; height: 4px;
+    left: 10%; top: 100%;
+    animation-duration: 18s;
+    animation-delay: 0s;
+}
+
+.particle-2 {
+    width: 3px; height: 3px;
+    left: 30%; top: 100%;
+    background: rgba(124, 58, 237, 0.6);
+    animation-duration: 22s;
+    animation-delay: 2s;
+}
+
+.particle-3 {
+    width: 5px; height: 5px;
+    left: 55%; top: 100%;
+    animation-duration: 16s;
+    animation-delay: 4s;
+}
+
+.particle-4 {
+    width: 3px; height: 3px;
+    left: 75%; top: 100%;
+    background: rgba(255, 0, 110, 0.5);
+    animation-duration: 20s;
+    animation-delay: 1s;
+}
+
+.particle-5 {
+    width: 4px; height: 4px;
+    left: 90%; top: 100%;
+    background: rgba(124, 58, 237, 0.5);
+    animation-duration: 24s;
+    animation-delay: 3s;
+}
+
+.particle-6 {
+    width: 3px; height: 3px;
+    left: 45%; top: 100%;
+    animation-duration: 19s;
+    animation-delay: 5s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-110vh) translateX(30px);
+        opacity: 0;
+    }
+}
+
+
+/* ===== Main Container ===== */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    width: 90%;
+    max-width: 680px;
+
+    padding: 48px 40px 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 255, 255, 0.05) 0%,
+            rgba(124, 58, 237, 0.08) 50%,
+            rgba(255, 0, 110, 0.04) 100%
+        );
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    border: 1px solid rgba(0, 255, 255, 0.15);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 40px rgba(0, 255, 255, 0.08),
+        0 0 100px rgba(124, 58, 237, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    text-align: center;
+
+    animation: containerEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes containerEntry {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ===== Header Section ===== */
+
+.header-section {
+    margin-bottom: 32px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 18px;
+    margin-bottom: 16px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #00ffff;
+
+    background: rgba(0, 255, 255, 0.08);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 100px;
+
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 255, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.25); }
+}
+
+h1 {
+    font-size: clamp(32px, 7vw, 56px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1.1;
+
+    background: linear-gradient(135deg, #00ffff 0%, #ffffff 40%, #a78bfa 70%, #ff006e 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-shadow: none;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3));
+
+    animation: titleShimmer 6s ease-in-out infinite;
+}
+
+@keyframes titleShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: rgba(165, 243, 252, 0.7);
+    text-transform: uppercase;
+}
+
+
+/* ===== Form Grid ===== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+}
+
+.input-group-full {
+    grid-column: 1 / -1;
+}
+
+
+/* ===== Input Groups ===== */
+
+.input-group {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #a5f3fc;
+    letter-spacing: 0.3px;
+}
+
+
+/* ===== Inputs ===== */
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+
+    background: rgba(0, 0, 0, 0.4);
+    color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+
+    border: 1px solid rgba(0, 255, 255, 0.12);
+    border-radius: 12px;
+
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(148, 163, 184, 0.4);
+    font-size: 13px;
+}
+
+input:hover {
+    border-color: rgba(0, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+    border-color: #00ffff;
+    background: rgba(0, 0, 0, 0.55);
+    box-shadow:
+        0 0 0 3px rgba(0, 255, 255, 0.1),
+        0 0 20px rgba(0, 255, 255, 0.08);
+}
+
+/* Remove number input spinners for cleaner look */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+
+/* ===== Button ===== */
+
+button {
+    position: relative;
+    width: 100%;
+    margin-top: 28px;
+    padding: 16px 24px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #06b6d4, #7c3aed, #c026d3);
+    background-size: 200% 200%;
+
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: btnGradient 4s ease-in-out infinite;
+}
+
+@keyframes btnGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.btn-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(124, 58, 237, 0.3));
+    transition: opacity 0.4s ease;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow:
+        0 8px 30px rgba(0, 255, 255, 0.2),
+        0 4px 60px rgba(124, 58, 237, 0.15);
+}
+
+button:hover .btn-glow {
+    opacity: 1;
+}
+
+button:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ===== Result Box ===== */
+
+.result-box {
+    margin-top: 30px;
+    padding: 28px 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.4),
+            rgba(124, 58, 237, 0.08)
+        );
+
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    animation: resultSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes resultSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.result-emoji {
+    font-size: 64px;
+    margin-bottom: 8px;
+    animation: emojiPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes emojiPop {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.result-box h2 {
+    color: #00ffff;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.result-box h3 {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(165, 243, 252, 0.8);
+    letter-spacing: 1px;
+}
+
+.result-box p {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.score {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 12px 0;
+    background: linear-gradient(90deg, #00ffff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* ===== Progress Bar ===== */
+
+.progress {
+    width: 100%;
+    height: 12px;
+    margin: 16px 0;
+    background: rgba(17, 24, 39, 0.8);
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 100px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ffff,
+            #7c3aed,
+            #ff006e
+        );
+
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+
+/* ===== Loading State ===== */
+
+#result {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #a5f3fc;
+    letter-spacing: 0.5px;
+    min-height: 0;
+}
+
+
+/* ===== Retry Button (inside result) ===== */
+
+.result-box button {
+    margin-top: 20px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    font-size: 14px;
+    padding: 12px 20px;
+}
+
+.result-box button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+
+/* ===== Footer ===== */
+
+.site-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.site-footer p {
+    font-size: 12px;
+    color: rgba(148, 163, 184, 0.4);
+    letter-spacing: 0.5px;
+}
+
+
+/* ===== Mobile Responsive ===== */
+
+@media (max-width: 560px) {
+
+    body {
+        padding: 24px 12px;
+    }
+
+    .container {
+        padding: 32px 24px 28px;
+        border-radius: 22px;
+    }
+
+    h1 {
+        font-size: 34px;
+        letter-spacing: 1px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .input-group-full {
+        grid-column: auto;
+    }
+
+    .badge {
+        font-size: 10px;
+        padding: 5px 14px;
+    }
+
+    .result-emoji {
+        font-size: 48px;
+    }
+
+    .score {
+        font-size: 24px;
+    }
+
+    .glow-orb { display: none; }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 24px 16px 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
