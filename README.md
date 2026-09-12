@@ -1,127 +1,110 @@
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
+# AM I COOKED? 🎯
 
-# [AM I COOKED?] 🎯
+## Basic Details
+### Team Name: Team Tech
 
-### Basic Details
+### Team Members
+- Team Lead: Adarsana Binu - College of Engineering Attingal
+- Member 2: Ajas - College of Engineering Attingal
 
-#### The Problem (that doesn't exist)
+### Project Description
+"AM I COOKED?" is a humorous, AI-powered student life diagnostic system. By taking your lifestyle and academic metrics—such as sleep hours, pending assignments, exam countdown, attendance percentage, backlogs, screen time, and caffeine intake—it calculates how cooked you really are using a Machine Learning model.
 
-Students often wonder how badly their academic life is going, especially when exams, assignments, low attendance, backlogs, lack of sleep, and excessive screen time start piling up.
+### The Problem (that doesn't exist)
+Students often wonder how badly their academic life is going, especially when exams, assignments, low attendance, backlogs, lack of sleep, and excessive screen time start piling up into an existential crisis.
 
-#### The Solution (that nobody asked for)
+### The Solution (that nobody asked for)
+An AI-driven diagnostic system that analyzes your questionable life choices, predicts your "Cooked Score" (out of 100) and Academic Survival Probability using a Machine Learning model, and delivers brutal, custom trash talk tailored to your exact academic disaster.
 
-"AM I COOKED?" is a fun AI-powered student life diagnostic system. Users enter their academic and lifestyle details, and a Machine Learning model predicts their "Cooked Score" and Academic Survival Probability. The system also gives humorous AI-generated trash talk based on their situation.
+---
 
 ## Technical Details
 
-#### Technologies/Components Used
+### Technologies/Components Used
 
 For Software:
-
-- Python
-- HTML
-- CSS
-- JavaScript
-- Flask
-- Pandas
-- Scikit-learn
-- Joblib
-- VS Code
+- **Languages:** Python, JavaScript (ES6+), HTML5, CSS3
+- **Frameworks:** Flask
+- **Libraries:** Scikit-learn, Pandas, Joblib, Flask-CORS
+- **Tools:** VS Code, Git, GitHub, Render
 
 For Hardware:
-
-- Laptop/PC
+- Laptop / PC
 - Minimum 4 GB RAM
 - Keyboard and mouse
-- Internet connection (for development/setup)
+- Internet connection (for setup and deployment)
+
+---
 
 ### Implementation
-For software: The user enters details such as sleep hours, pending assignments, days until exam, attendance, backlogs, screen time, and coffee/energy drink consumption.
 
-The JavaScript sends the input data to the Python backend. The trained Machine Learning model analyzes the data and predicts a Cooked Score. The result is then displayed on a separate result page along with the survival probability and humorous trash talk.
+For Software:
+The user inputs key academic and lifestyle metrics into the web interface. The frontend JavaScript collects and packages this data, then sends it via JSON to the Flask backend. 
 
-### Machine Learning Model
+A trained Random Forest Regression model (`cooked_model.pkl`) processes the inputs (including normalized caffeine intake) to output a continuous Cooked Score from 0 to 100. Based on the score and specific inputs, the backend assigns a "Cooked Level", survival rate, and personalized trash talk, returning it to the frontend for interactive display.
 
-A Random Forest Regression model is used to predict the Cooked Score based on student productivity and distraction-related factors.
+#### Machine Learning Model
+- **Model Type:** Random Forest Regressor
+- **Trained Model File:** `cooked_model.pkl`
+- **Features Used:**
+  - Sleep Hours
+  - Pending Assignments
+  - Days Until Exam
+  - Attendance Percentage
+  - Backlogs
+  - Phone Screen Time
+  - Coffee / Caffeine Intake (mg)
 
-The trained model is saved as:
+#### Output Metrics:
+- **Cooked Score:** 0 – 100
+- **Academic Survival Probability:** 0% – 100%
+- **Cooked Level:** NOT COOKED 😎, SLIGHTLY TOASTED 😅, GETTING COOKED 😰, DEEP FRIED 🔥, ABSOLUTELY COOKED 💀
+- **Personalized Trash Talk:** Contextual roast based on student habits
 
-`cooked_model.pkl`
+---
 
-### Features
-
-- Sleep Hours
-- Pending Assignments
-- Days Until Exam
-- Attendance Percentage
-- Backlogs
-- Screen Time
-- Coffee/Energy Drinks
-
-### Output
-
-The system provides:
-
-- Cooked Score out of 100
-- Academic Survival Probability
-- Cooked Level
-- Personalized Trash Talk
 # Installation
-['''bash
-pip install flask pandas scikit-learn joblib]
+```bash
+pip install -r requirements.txt
+```
 
 # Run
-[python app.py]
+```bash
+python app.py
+```
+
+---
 
 ### Project Documentation
-
+For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1](Screenshot%202026-09-12%20103735.png)
+*Input interface where students enter their academic and lifestyle metrics.*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](output.png)
+*Diagnosis output screen showing the Cooked Score, Academic Survival Probability, and Cooked Level.*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot3](mlmodel.png)
+*Machine learning model prediction and personalized humorous trash talk.*
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
+---
 
 ### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+# Live Link
+🚀 **Live App:** [AM I COOKED? 🔥](https://useless-project-rm33.onrender.com/)
+
 
 # Additional Demos
-[Add any extra demo materials/links]
+- Web application hosted live on Render: [https://useless-project-rm33.onrender.com/](https://useless-project-rm33.onrender.com/)
+
+---
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- **Adarsana Binu:** Frontend UI/UX design, responsive layouts, dynamic animations, and JavaScript API integration.
+- **Ajas:** Machine Learning model training, Flask backend API design, and Render cloud deployment.
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
