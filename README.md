@@ -1,51 +1,81 @@
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
 
-
 # [AM I COOKED?] 🎯
 
+### Basic Details
 
-## Basic Details
-### Team Name: []
+#### The Problem (that doesn't exist)
 
+Students often wonder how badly their academic life is going, especially when exams, assignments, low attendance, backlogs, lack of sleep, and excessive screen time start piling up.
 
-### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+#### The Solution (that nobody asked for)
 
-### Project Description
-[2-3 lines about what your project does]
-
-### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
-
-### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+"AM I COOKED?" is a fun AI-powered student life diagnostic system. Users enter their academic and lifestyle details, and a Machine Learning model predicts their "Cooked Score" and Academic Survival Probability. The system also gives humorous AI-generated trash talk based on their situation.
 
 ## Technical Details
-### Technologies/Components Used
+
+#### Technologies/Components Used
+
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+
+- Python
+- HTML
+- CSS
+- JavaScript
+- Flask
+- Pandas
+- Scikit-learn
+- Joblib
+- VS Code
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+
+- Laptop/PC
+- Minimum 4 GB RAM
+- Keyboard and mouse
+- Internet connection (for development/setup)
 
 ### Implementation
-For Software:
+For software: The user enters details such as sleep hours, pending assignments, days until exam, attendance, backlogs, screen time, and coffee/energy drink consumption.
+
+The JavaScript sends the input data to the Python backend. The trained Machine Learning model analyzes the data and predicts a Cooked Score. The result is then displayed on a separate result page along with the survival probability and humorous trash talk.
+
+### Machine Learning Model
+
+A Random Forest Regression model is used to predict the Cooked Score based on student productivity and distraction-related factors.
+
+The trained model is saved as:
+
+`cooked_model.pkl`
+
+### Features
+
+- Sleep Hours
+- Pending Assignments
+- Days Until Exam
+- Attendance Percentage
+- Backlogs
+- Screen Time
+- Coffee/Energy Drinks
+
+### Output
+
+The system provides:
+
+- Cooked Score out of 100
+- Academic Survival Probability
+- Cooked Level
+- Personalized Trash Talk
 # Installation
-[commands]
+['''bash
+pip install flask pandas scikit-learn joblib]
 
 # Run
-[commands]
+[python app.py]
 
 ### Project Documentation
-For Software:
+
 
 # Screenshots (Add at least 3)
 ![Screenshot1](Add screenshot 1 here with proper name)
