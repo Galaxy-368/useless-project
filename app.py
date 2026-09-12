@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import joblib
 import pandas as pd
@@ -10,6 +10,24 @@ cors = CORS(app, resources={r"/*": {"origins": ["*"]}})
 
 # Load trained ML model
 model = joblib.load("cooked_model.pkl")
+
+
+@app.route("/")
+def home():
+    """Serve the main frontend page."""
+    return send_from_directory(".", "index.html")
+
+
+@app.route("/<path:filename>")
+def serve_static(filename):
+    """Serve static assets like style.css and file.js while protecting backend files."""
+    _, ext = os.path.splitext(filename)
+    if ext.lower() in [".py", ".pkl", ".csv"] or filename.startswith("."):
+        return jsonify({"error": "Access denied"}), 403
+    if os.path.isfile(filename):
+        return send_from_directory(".", filename)
+    return jsonify({"error": "File not found"}), 404
+
 
 
 def get_trash_talk(sleep, assignments, exam_days,

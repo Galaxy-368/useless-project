@@ -38,7 +38,11 @@ form.addEventListener("submit", async function (event) {
 
         // Send data to Python ML model
 
-        const response = await fetch("https://useless-project-rm33.onrender.com/predict", {
+        const apiUrl = window.location.protocol === "file:"
+            ? "https://useless-project-rm33.onrender.com/predict"
+            : "/predict";
+
+        const response = await fetch(apiUrl, {
 
             method: "POST",
 
